@@ -11,7 +11,7 @@ function insert (string $entidade, array $dados): string
 
 function update (string $entidade, array $dados, array $criterio = []) : string
 {
-    $instrucao = "UPDATE ($entidade]";
+    $instrucao = "UPDATE {$entidade}";
     foreach ($dados as $campo => $dado)
     {
         $set[] = "{$campo} = {$dado}";
@@ -39,24 +39,24 @@ function delete (string $entidade, array $criterio = []) : string
     return $instrucao;
 }
 
-function select (string $entidade, array $campos, array $criterio = [],
-string $ordem= null): string
-{
-    $instrucao = "SELECT " . implode(', ' , $campos);
-     $instrucao .= "FROM {$entidade}";
-    if(!empty($criterio))
-     {
-        $instrucao .= ' WHERE ';
+function select(string $entidade, array $campos = ['*'], array $criterio = [], string $ordem = null) : string {
+    $sql = "SELECT " . implode(', ', $campos) . " FROM " . $entidade;
 
-        foreach ($criterio as $expressao)
-        {
-            $instrucao .= ' ' .implode(' ', $expressao);
+    if(!empty($criterio)) {
+        $sql .= " WHERE ";
+        $condicoes = [];
+        foreach($criterio as $expressao) {
+            $condicoes[] = implode(' ', $expressao);
         }
+        $sql .= implode(' AND ', $condicoes);
     }
+
     if(!empty($ordem)) {
-        $instrucao .= "ORDER BY $ordem ";
+        $sql .= " ORDER BY " . $ordem;
     }
-    return $instrucao;
+
+    return $sql;
 }
+
 
 ?>

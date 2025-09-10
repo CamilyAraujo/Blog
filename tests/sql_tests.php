@@ -1,9 +1,9 @@
 <?php
 require_once '../core/sql.php';
 $id = 1;
-$nome = 'murilo';
-$email = 'murilo@gmail.com';
-$senha = '123mudar';
+$nome = 'Camily Vitória';
+$email = 'camilyvitoria@gmail.com';
+$senha = 'Camily123';
 $dados = ['nome' => $nome, 'email' => $email, 'senha' => $senha];
 $entidade = 'usuario';
 $criterio = [['id', '=', $id]];
