@@ -6,7 +6,7 @@
 
     insert_teste('João', 'joao@ifsp.edu.br', '123456');
     buscar_teste();
-    update_teste(2, 'murilo', 'silva@gmail.com');
+    update_teste(2, 'camily', 'camily@gmail.com');
     buscar_teste();
 
     //Teste inserção no banco de dados

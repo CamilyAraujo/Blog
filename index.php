@@ -10,6 +10,8 @@
                 <div class="col-md-12">
                     <!-- TOPO // -->
                     <?php
+                    date_default_timezone_set('America/Sao_Paulo');
+
                         include 'includes/topo.php';
                     ?>
                 </div>
